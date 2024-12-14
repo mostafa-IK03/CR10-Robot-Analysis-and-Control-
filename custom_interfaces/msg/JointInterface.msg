@@ -1,0 +1,7 @@
+float64 x_position
+float64 y_position
+float64 z_position
+float64 x_rotation
+float64 y_rotation
+float64 z_rotation
+float64 w_rotation
