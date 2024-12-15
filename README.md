@@ -37,3 +37,20 @@ Several steps of the project are demonstrated through videos, including robot vi
    ```bash
    git clone https://github.com/mostafa-IK03/CR10-Robot-Analysis-and-Control-.git
    cd CR10-Robot-Analysis-and-Control-
+2. **Build the project**:
+   ```bash
+   colcon build
+   source install/setup.bash
+3. **Launch the Project**:
+   ```bash
+   ros2 launch trajectory_planner trajectory_planner_library.launch.py
+   # OR FOR LINEAR PLANNER:
+   ros2 launch trajectory_planner trajectory_planner_linear.launch.py
+4. **Send commands**:
+   ```bash
+   #Example command for 2 points A and B with linear speed:
+   ros2 topic pub /desired_pos custom_interfaces/msg/EndEffectorCommand "{point_a: {x: 0.5, y: 0.7, z: 0.6}, point_b:{x: -0.1, y: 0.2, z: 1.0},     
+   linear_speed: 1}" --once
+   #Example command for circle drawing (only available for planner with library):
+   ros2 topic pub /parametric_command custom_interfaces/msg/ParametricCommand "{center: {x: 0.6, y: 0.0, z: 0.5}, radius: 0.4, num_waypoints: 100,     
+   linear_speed: 0.2}" --once
